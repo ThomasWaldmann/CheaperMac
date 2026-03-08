@@ -1,9 +1,11 @@
 import argparse
 import signal
+import multiprocessing
 from cheapermac.simulator import CheaperMac
 
 
 def main():
+    multiprocessing.freeze_support()
     parser = argparse.ArgumentParser(
         description="Simulate living with restricted computer resources."
     )
