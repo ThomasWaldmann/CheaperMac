@@ -5,6 +5,7 @@ import multiprocessing
 from cheapermac import __version__
 from cheapermac.simulator import CheaperMac
 
+
 def main():
     multiprocessing.freeze_support()
     parser = argparse.ArgumentParser(
