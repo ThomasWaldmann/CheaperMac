@@ -1,6 +1,6 @@
-# MacNeoSimulator - living with a less powerful Mac.
+# CheaperMac - living with a cheaper, less powerful Mac.
 
-MacNeoSimulator is a tool designed to simulate the experience of living
+CheaperMac is a tool designed to simulate the experience of living
 with a less powerful Mac than the machine running the simulator:
 
 - fewer CPU cores
