@@ -23,9 +23,9 @@ with a less powerful Mac than the machine running the simulator:
 
 ## Installation
 
-1. Install dependencies:
+1. Install dependencies and the package:
    ```bash
-   pip install -r requirements.txt
+   pip install .
    ```
 
 ## Usage
@@ -33,7 +33,7 @@ with a less powerful Mac than the machine running the simulator:
 Start the simulator and give a memory (GB) and CPU limit (cores):
 
 ```bash
-python simulator.py --cpu 5 --memory 8.0
+cheapermac --cpu 5 --memory 8.0
 ```
 
 To stop the simulation, simply press `Ctrl+C` in the terminal.

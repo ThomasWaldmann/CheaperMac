@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cheapermac"
+version = "0.1.0"
+description = "Simulate living with a cheaper Mac with less system resources."
+authors = [
+    { name = "Thomas Waldmann", email = "tw@waldmann-edv.de" }
+]
+dependencies = [
+    "psutil>=5.9.8",
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+cheapermac = "cheapermac.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
