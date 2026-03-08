@@ -1,11 +1,12 @@
-import psutil
-import time
-import argparse
-import signal
-import sys
 import ctypes
 import ctypes.util
+import argparse
 import multiprocessing
+import signal
+import sys
+import time
+
+import psutil
 
 
 def cpu_busy_loop():
