@@ -16,18 +16,6 @@ with a less powerful Mac than the machine running the simulator:
   `mlock` to lock it into physical RAM, preventing the operating system from 
   swapping it out.
 
-## Prerequisites
-
-- Python 3.x
-- `psutil` library
-
-## Installation
-
-1. Install dependencies and the package:
-   ```bash
-   pip install .
-   ```
-
 ## Usage
 
 Start the simulator and give a memory (GB) and CPU limit (cores):
