@@ -6,7 +6,7 @@ from .memory import get_libc, allocate_memory_in_chunks
 
 
 class CheaperMac:
-    def __init__(self, memory_gb, cpu_limit=None):
+    def __init__(self, memory_gb, cpu_limit):
         self.memory_bytes = int(memory_gb * (1024**3))
         self.total_bytes = psutil.virtual_memory().total
         self.eat_bytes = self.total_bytes - self.memory_bytes

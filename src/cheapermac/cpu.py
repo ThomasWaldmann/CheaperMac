@@ -12,7 +12,7 @@ def cpu_busy_loop():
 
 
 def start_cpu_simulation(busy_cores):
-    """Starts busy_cores amount of processes for CPU simulation."""
+    """Starts busy_cores number of processes for CPU simulation."""
     cpu_processes = []
     for _ in range(busy_cores):
         p = multiprocessing.Process(target=cpu_busy_loop)
