@@ -1,13 +1,20 @@
-# MacNeoSimulator - 8GB RAM Life Simulator
+# MacNeoSimulator - living with a less powerful Mac.
 
-MacNeoSimulator is a tool designed to simulate the experience of living with restricted system resources (like 8GB RAM or fewer CPU cores) on a more powerful machine.
+MacNeoSimulator is a tool designed to simulate the experience of living
+with a less powerful Mac than the machine running the simulator:
+
+- fewer CPU cores
+- less memory (RAM)
 
 ## How it works
 
-- **Memory Simulation**: The tool calculates the difference between your total system RAM and a memory limit (defaulting to 8GB) and allocates that extra memory. It then uses `mlock` to lock it into physical RAM, preventing the operating system from swapping it out.
-- **CPU Simulation**: The tool can simulate fewer CPU cores by spawning busy-loop processes that consume the extra cores, making them unavailable for other tasks.
-
-This creates an environment where you can test workflows, develop software, or just browse the web under the constraints of a less powerful machine.
+- **CPU Simulation**: The tool can simulate fewer CPU cores by spawning
+  busy-loop processes that consume the extra cores, making them unavailable 
+  for other tasks.
+- **Memory Simulation**: The tool calculates the difference between your total
+  system RAM and a memory target and allocates that extra memory. It then uses
+  `mlock` to lock it into physical RAM, preventing the operating system from 
+  swapping it out.
 
 ## Prerequisites
 
@@ -23,28 +30,24 @@ This creates an environment where you can test workflows, develop software, or j
 
 ## Usage
 
-Start the simulation with the default memory limit of 8GB:
+Start the simulator and give a memory (GB) and CPU limit (cores):
 
 ```bash
-python simulator.py
+python simulator.py --cpu 5 --memory 8.0
 ```
 
-Specify a different memory limit (e.g., 4GB) and CPU limit (e.g., 4 cores):
+To stop the simulation, simply press `Ctrl+C` in the terminal.
 
-```bash
-python simulator.py --memory 4.0 --cpu 4
-```
+## Important Notes
 
-To stop the simulation and free the resources, simply press `Ctrl+C` in the terminal.
+This tool allocates real physical memory. While it has safety checks,
+using it on a system that is already under high load might lead to
+performance degradation or application crashes. Use with care.
 
-## Safety Features
+The simulation is not perfect:
 
-- **Progressive Allocation**: Allocates memory in chunks to prevent sudden system spikes.
-- **Memory Locking**: Uses `mlock` where available to ensure allocated memory stays in physical RAM and isn't swapped to disk.
-- **CPU Isolation**: Uses separate processes for CPU busy-loops to ensure they effectively consume core capacity.
-- **Safety Buffer**: Automatically stops memory allocation if available system memory drops below 500MB.
-- **Graceful Cleanup**: Frees all allocated memory and terminates busy-loop processes upon exit.
+It does nothing to simulate other differences, like SSD I/O, GPU, cooling,
+USB speed, network speed, etc.
 
-## Important Note
-
-This tool allocates real physical memory. While it has safety checks, using it on a system that is already under high load might lead to performance degradation or application crashes. Use with care.
+It only deals with CPU core counts, not with speed differences of the cores,
+like super/performance/efficiency cores or just older/newer cores.
