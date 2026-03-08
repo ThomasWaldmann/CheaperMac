@@ -16,15 +16,23 @@ with a less powerful Mac than the machine running the simulator:
   `mlock` to lock it into physical RAM, preventing the operating system from 
   swapping it out.
 
-## Usage
+## Installation
 
-Start the simulator and give a memory (GB) and CPU limit (cores):
+Either download the binary from Github releases page or
+use ``pip install cheapermac`` to install it from PyPI.
+
+## Usage (CLI)
+
+Run the `cheapermac` command in a terminal window:
 
 ```bash
-cheapermac --cpu 5 --memory 8.0
+cheapermac  # use the defaults (same as shown below)
+cheapermac --cpu 5 --memory 8.0  # leave 5 cores and 8 GB free to use
 ```
 
 To stop the simulation, simply press `Ctrl+C` in the terminal.
+
+The defaults are similar to the resources offered on a Macbook Neo 2026.
 
 ## Important Notes
 
