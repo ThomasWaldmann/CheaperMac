@@ -1,5 +1,6 @@
 import multiprocessing
 
+
 def cpu_busy_loop():
     """Simple busy loop to consume CPU cycles."""
     try:
@@ -8,6 +9,7 @@ def cpu_busy_loop():
             _ = 1 * 1
     except KeyboardInterrupt:
         pass
+
 
 def start_cpu_simulation(busy_cores):
     """Starts busy_cores amount of processes for CPU simulation."""
@@ -18,6 +20,7 @@ def start_cpu_simulation(busy_cores):
         p.start()
         cpu_processes.append(p)
     return cpu_processes
+
 
 def stop_cpu_simulation(cpu_processes):
     """Terminates all given CPU processes."""

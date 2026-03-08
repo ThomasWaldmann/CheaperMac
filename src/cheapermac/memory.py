@@ -2,6 +2,7 @@ import ctypes
 import ctypes.util
 import psutil
 
+
 def get_libc():
     """Tries to find and load libc for mlock."""
     libc = None
@@ -17,6 +18,7 @@ def get_libc():
         pass
     return libc
 
+
 def lock_memory_chunk(libc, chunk, chunk_size):
     """Locks a chunk of memory using mlock if available."""
     if libc and hasattr(libc, "mlock"):
@@ -29,6 +31,7 @@ def lock_memory_chunk(libc, chunk, chunk_size):
         except Exception:
             # Fallback if locking fails, just continue with regular allocation
             pass
+
 
 def allocate_memory_in_chunks(eat_bytes, libc):
     """Allocates memory in chunks and returns a list of allocated chunks."""
@@ -55,7 +58,9 @@ def allocate_memory_in_chunks(eat_bytes, libc):
         # Check current available memory to avoid triggering swap or OOM killer
         vm = psutil.virtual_memory()
         if vm.available < (500 * 1024 * 1024):  # Keep at least 500MB safety buffer
-            print("Safety limit reached: Stopping allocation to prevent system instability.")
+            print(
+                "Safety limit reached: Stopping allocation to prevent system instability."
+            )
             break
-            
+
     return allocated_memory

@@ -2,6 +2,7 @@ import argparse
 import signal
 from cheapermac.simulator import CheaperMac
 
+
 def main():
     parser = argparse.ArgumentParser(
         description="Simulate living with restricted computer resources."
@@ -21,6 +22,7 @@ def main():
     signal.signal(signal.SIGTERM, lambda s, f: simulator.cleanup())
 
     simulator.allocate()
+
 
 if __name__ == "__main__":
     main()

@@ -4,6 +4,7 @@ import psutil
 from .cpu import start_cpu_simulation, stop_cpu_simulation
 from .memory import get_libc, allocate_memory_in_chunks
 
+
 class CheaperMac:
     def __init__(self, memory_gb, cpu_limit=None):
         self.memory_bytes = int(memory_gb * (1024**3))
@@ -45,7 +46,9 @@ class CheaperMac:
             )
 
             try:
-                self.allocated_memory = allocate_memory_in_chunks(self.eat_bytes, self.libc)
+                self.allocated_memory = allocate_memory_in_chunks(
+                    self.eat_bytes, self.libc
+                )
             except KeyboardInterrupt:
                 self.cleanup()
         else:
