@@ -1,6 +1,6 @@
 import argparse
 import signal
-from .simulator import CheaperMac
+from cheapermac.simulator import CheaperMac
 
 def main():
     parser = argparse.ArgumentParser(

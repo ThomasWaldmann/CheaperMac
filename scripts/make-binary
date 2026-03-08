@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+# Ensure we're in the scripts directory
+cd "$(dirname "$0")"
+
+# Clear build and dist directories relative to the root
+rm -rf ../build ../dist
+
+# Check if pyinstaller is available
+if ! command -v pyinstaller &> /dev/null
+then
+    echo "pyinstaller could not be found. Please install it with 'pip install pyinstaller'."
+    exit 1
+fi
+
+# Run pyinstaller using the spec file
+# The spec file is already configured for one-file
+pyinstaller cheapermac.spec --workpath ../build --distpath ../dist --clean --noconfirm
+
+echo "Binary build complete. You can find it in the dist/ directory."
