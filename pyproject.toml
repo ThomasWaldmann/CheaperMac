@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cheapermac"
 description = "Simulate living with a cheaper Mac with less system resources."
+license = { text = "MIT" }
 authors = [
     { name = "Thomas Waldmann", email = "tw@waldmann-edv.de" }
 ]
