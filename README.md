@@ -48,6 +48,11 @@ USB speed, network speed, etc.
 It only deals with CPU core counts, not with speed differences of the cores,
 like super/performance/efficiency cores or just older/newer cores.
 
+While the simulation is running, it keeps the excess CPU cores busy.
+This causes a higher than usual power consumption, more heat and potentially
+more fan activity. You need to ignore these side effects, they won't happen
+on the cheaper Mac.
+
 ## Demo
 ```bash
 # Running on a Macbook Pro M3 Pro with 12 cores and 18 GB of RAM:
